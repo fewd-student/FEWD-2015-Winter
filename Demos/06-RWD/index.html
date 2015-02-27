@@ -4,21 +4,74 @@
 		<title>RWD Demo</title>
 
 		<style>
+			[class*="fs-row"] {
+				margin-bottom: 50px;
+			}
+			[class*="fs-row"] [class*="fs-row"] {
+				margin-bottom: 0;
+			}
 			[class*="fs-cell"] {
 				background: rgba(26, 104, 173, 0.25);
 				overflow: hidden;
 				color: #fff;
 				font-size: 12px;
 				letter-spacing: 0.15em;
+				margin-bottom: 10px;
 				padding: 20px;
 				text-align: center;
 				text-transform: uppercase;
 			}
 		</style>
-	</head>
-	<body>
 
-		<div class="fs-cell"></div>
+		<link href="components/normalize-css/normalize.css" rel="stylesheet">
+		<link href="components/formstone/dist/css/grid.css" rel="stylesheet">
+
+	</head>
+	<body class="fs-grid">
+
+		<!-- Symetrical -->
+		<div class="fs-row">
+			<div class="fs-cell fs-all-third">1</div>
+			<div class="fs-cell fs-all-third">2</div>
+			<div class="fs-cell fs-all-third">3</div>
+		</div>
+
+		<!-- Asymetrical -->
+		<div class="fs-row">
+			<div class="fs-cell-right fs-lg-4">Sidebar</div>
+			<div class="fs-cell fs-lg-8">Content</div>
+		</div>
+
+		<!-- Push -->
+		<div class="fs-row">
+			<div class="fs-cell fs-lg-2">Sidebar</div>
+			<div class="fs-cell fs-lg-6 fs-lg-push-2">Content</div>
+		</div>
+
+		<!-- Nested -->
+		<div class="fs-row">
+			<div class="fs-cell fs-lg-8">
+
+				<div class="fs-row">
+					<div class="fs-cell fs-lg-6">1</div>
+					<div class="fs-cell fs-lg-6">2</div>
+				</div>
+
+			</div>
+		</div>
 
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
