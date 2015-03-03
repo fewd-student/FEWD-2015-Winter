@@ -1,9 +1,109 @@
 <!doctype html>
 <html>
 	<head>
+		<title>PicticiousPro</title>
 
+		<link href="components/normalize-css/normalize.css" rel="stylesheet">
+		<link href="components/formstone/dist/css/grid.css" rel="stylesheet">
+		<link href="css/site.css" rel="stylesheet">
+
+		<style>
+			[class*="fs-row"] {
+				border: 1px solid red;
+			}
+
+			[class*="fs-cell"] {
+				border: 1px solid blue;
+			}
+
+			img {
+				max-width: 100%;
+			}
+		</style>
 	</head>
-	<body>
-
+	<body class="fs-grid">
+		<header class="fs-row header">
+			<div class="fs-cell">
+				<a href="#" class="logo"><strong>Picticious</strong>Pro</a>
+			</div>
+		</header>
+		<section class="intro">
+			<div class="fs-row">
+				<div class="fs-cell">
+					<h1 class="intro_heading">Nice Shot</h1>
+					<p class="intro_content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.</p>
+					<a href="#download" class="button intro_button">Download Now</a>
+				</div>
+			</div>
+		</section>
+		<section class="fs-row features">
+			<div class="fs-cell fs-md-third fs-lg-third feature feature_tag">
+				<h2 class="feature_heading">Tag It All</h2>
+				<p class="feature_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam suscipit aliquet felis, quis.</p>
+			</div>
+			<div class="fs-cell fs-md-third fs-lg-third feature feature_cloud">
+				<h2 class="feature_heading">Cloud Sync</h2>
+				<p class="feature_content">Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum.</p>
+			</div>
+			<div class="fs-cell fs-md-third fs-lg-third feature feature_map">
+				<h2 class="feature_heading">Photo Map</h2>
+				<p class="feature_content">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Ligula porta felis.</p>
+			</div>
+		</section>
+		<section class="gallery">
+			<div class="fs-row">
+				<div class="fs-cell fs-md-4 fs-lg-4">
+					<h3 class="gallery_heading">Capture Life</h3>
+					<p class="gallery_content">Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+				</div>
+				<a href="#" class="fs-cell fs-md-1 fs-lg-2">
+					<img src="http://spacehold.it/300x300" alt="">
+				</a>
+				<a href="#" class="fs-cell fs-md-1 fs-lg-2">
+					<img src="http://spacehold.it/300x300" alt="">
+				</a>
+				<a href="#" class="fs-cell fs-md-1 fs-lg-2">
+					<img src="http://spacehold.it/300x300" alt="">
+				</a>
+				<a href="#" class="fs-cell fs-md-1 fs-lg-2">
+					<img src="http://spacehold.it/300x300" alt="">
+				</a>
+				<a href="#" class="fs-cell fs-md-1 fs-lg-2">
+					<img src="http://spacehold.it/300x300" alt="">
+				</a>
+				<a href="#" class="fs-cell fs-md-1 fs-lg-2">
+					<img src="http://spacehold.it/300x300" alt="">
+				</a>
+				<a href="#" class="fs-cell fs-md-1 fs-lg-2">
+					<img src="http://spacehold.it/300x300" alt="">
+				</a>
+				<a href="#" class="fs-cell fs-md-1 fs-lg-2">
+					<img src="http://spacehold.it/300x300" alt="">
+				</a>
+			</div>
+		</section>
+		<section class="fs-row download">
+			<div class="fs-cell">
+				<h2 class="download_heading">Download Now</h2>
+				<p class="download_content">Nullam id dolor id nibh ultricies vehicula deposit quid pro quo hic escorol.</p>
+				<div class="download_buttons">
+					<a href="#" class="button download_button download_apple">App Store</a>
+					<a href="#" class="button download_button download_google">Play Store</a>
+					<a href="#" class="button download_button download_amazon">Amazon Store</a>
+				</div>
+			</div>
+		</section>
+		<footer class="fs-row footer">
+			<div class="fs-cell fs-md-half fs-lg-half">
+				<a href="#" class="footer_link">Support</a>
+				<a href="#" class="footer_link">Privacy &amp; Terms</a>
+				<p class="footer_text">&copy; 2014 PicticiousPro</p>
+			</div>
+			<div class="fs-cell fs-md-half fs-lg-half social_links">
+				<a href="#" class="social_link social_facebook">Facebook</a>
+				<a href="#" class="social_link social_twitter">Twitter</a>
+				<a href="#" class="social_link social_google">Google+</a>
+			</div>
+		</footer>
 	</body>
 </html>
