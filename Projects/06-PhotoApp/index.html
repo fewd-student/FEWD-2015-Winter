@@ -3,25 +3,11 @@
 	<head>
 		<title>PicticiousPro</title>
 
-		<link href="http://fonts.googleapis.com/css?family=Roboto:400,400italic|Roboto+Condensed:300" rel="stylesheet">
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,600,600italic|Roboto+Condensed:300" rel="stylesheet">
 
 		<link href="components/normalize-css/normalize.css" rel="stylesheet">
 		<link href="components/formstone/dist/css/grid.css" rel="stylesheet">
 		<link href="css/site.css" rel="stylesheet">
-
-		<style>
-			[class*="fs-row"] {
-				border: 1px solid red;
-			}
-
-			[class*="fs-cell"] {
-				border: 1px solid blue;
-			}
-
-			img {
-				max-width: 100%;
-			}
-		</style>
 	</head>
 	<body class="fs-grid">
 		<header class="fs-row header">
@@ -29,7 +15,7 @@
 				<a href="#" class="logo"><strong>Picticious</strong>Pro</a>
 			</div>
 		</header>
-		<section class="intro">
+		<section class="bar intro">
 			<div class="fs-row">
 				<div class="fs-cell">
 					<h1 class="intro_heading">Nice Shot</h1>
@@ -38,7 +24,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="fs-row features">
+		<section class="fs-row bar features">
 			<div class="fs-cell fs-md-third fs-lg-third feature feature_tag">
 				<h2 class="feature_heading">Tag It All</h2>
 				<p class="feature_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam suscipit aliquet felis, quis.</p>
@@ -52,39 +38,39 @@
 				<p class="feature_content">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Ligula porta felis.</p>
 			</div>
 		</section>
-		<section class="gallery">
+		<section class="bar gallery">
 			<div class="fs-row">
 				<div class="fs-cell fs-md-4 fs-lg-4">
 					<h3 class="gallery_heading">Capture Life</h3>
 					<p class="gallery_content">Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
 				</div>
-				<a href="#" class="fs-cell fs-md-1 fs-lg-2">
-					<img src="http://spacehold.it/300x300" alt="">
+				<a href="images/photos/01.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item gallery_item_first">
+					<img src="images/photos/thumb_01.jpg" alt="">
 				</a>
-				<a href="#" class="fs-cell fs-md-1 fs-lg-2">
-					<img src="http://spacehold.it/300x300" alt="">
+				<a href="images/photos/02.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item gallery_item_first">
+					<img src="images/photos/thumb_02.jpg" alt="">
 				</a>
-				<a href="#" class="fs-cell fs-md-1 fs-lg-2">
-					<img src="http://spacehold.it/300x300" alt="">
+				<a href="images/photos/03.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item">
+					<img src="images/photos/thumb_03.jpg" alt="">
 				</a>
-				<a href="#" class="fs-cell fs-md-1 fs-lg-2">
-					<img src="http://spacehold.it/300x300" alt="">
+				<a href="images/photos/04.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item">
+					<img src="images/photos/thumb_04.jpg" alt="">
 				</a>
-				<a href="#" class="fs-cell fs-md-1 fs-lg-2">
-					<img src="http://spacehold.it/300x300" alt="">
+				<a href="images/photos/05.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item">
+					<img src="images/photos/thumb_05.jpg" alt="">
 				</a>
-				<a href="#" class="fs-cell fs-md-1 fs-lg-2">
-					<img src="http://spacehold.it/300x300" alt="">
+				<a href="images/photos/06.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item">
+					<img src="images/photos/thumb_06.jpg" alt="">
 				</a>
-				<a href="#" class="fs-cell fs-md-1 fs-lg-2">
-					<img src="http://spacehold.it/300x300" alt="">
+				<a href="images/photos/07.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item">
+					<img src="images/photos/thumb_07.jpg" alt="">
 				</a>
-				<a href="#" class="fs-cell fs-md-1 fs-lg-2">
-					<img src="http://spacehold.it/300x300" alt="">
+				<a href="images/photos/08.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item">
+					<img src="images/photos/thumb_08.jpg" alt="">
 				</a>
 			</div>
 		</section>
-		<section class="fs-row download">
+		<section class="fs-row bar download">
 			<div class="fs-cell">
 				<h2 class="download_heading">Download Now</h2>
 				<p class="download_content">Nullam id dolor id nibh ultricies vehicula deposit quid pro quo hic escorol.</p>
@@ -96,15 +82,15 @@
 			</div>
 		</section>
 		<footer class="fs-row footer">
+			<div class="fs-cell-right fs-md-half fs-lg-half social_links">
+				<a href="#" class="social_link social_facebook">Facebook</a>
+				<a href="#" class="social_link social_twitter">Twitter</a>
+				<a href="#" class="social_link social_google">Google+</a>
+			</div>
 			<div class="fs-cell fs-md-half fs-lg-half">
 				<a href="#" class="footer_link">Support</a>
 				<a href="#" class="footer_link">Privacy &amp; Terms</a>
 				<p class="footer_text">&copy; 2014 PicticiousPro</p>
-			</div>
-			<div class="fs-cell fs-md-half fs-lg-half social_links">
-				<a href="#" class="social_link social_facebook">Facebook</a>
-				<a href="#" class="social_link social_twitter">Twitter</a>
-				<a href="#" class="social_link social_google">Google+</a>
 			</div>
 		</footer>
 
