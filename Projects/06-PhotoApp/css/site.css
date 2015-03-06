@@ -288,7 +288,22 @@
 		}
 
 		.gallery_heading {
-			margin-top: 50px;
+			margin-top: 90px;
+		}
+
+		.csstransforms .gallery_heading {
+			margin-top: 0;
+		}
+
+		.csstransforms .gallery_row {
+			height: 300px;
+		}
+
+		.csstransforms .gallery_block {
+			min-height: 200px;
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
 		}
 
 		.gallery_item {
@@ -305,5 +320,7 @@
 	}
 
 	@media screen and (min-width: 1220px) {
-		/* target screens larger then 1220px */
+		.csstransforms .gallery_row {
+			height: 370px;
+		}
 	}
