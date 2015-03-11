@@ -36,7 +36,7 @@
 
 	/* Bars */
 
-	.bar {
+	.padded {
 		padding: 70px 0;
 	}
 
@@ -46,9 +46,8 @@
 		border-radius: 3px;
 		display: inline-block;
 		line-height: 1;
-		padding: 15px 30px 18px;
+		padding: 15px 40px 18px;
 		text-align: center;
-		width: 100%;
 	}
 
 	/* Header */
@@ -77,6 +76,10 @@
 
 	.intro {
 		background: #e77e04 url(../images/intro_bg.jpg) no-repeat top center;
+	}
+
+	.intro_row {
+		position: relative;
 	}
 
 	.intro_heading {
@@ -119,32 +122,6 @@
 		content: '';
 	}
 
-	.feature_heading:after {
-		display: inline-block;
-		height: 20px;
-		margin: 0 0 0 10px;
-		vertical-align: middle;
-		width: 20px;
-	}
-
-	.feature_tag .feature_heading:after {
-		background-position: 0 -80px;
-		height: 31px;
-		width: 31px;
-	}
-
-	.feature_cloud .feature_heading:after {
-		background-position: -40px -80px;
-		height: 25px;
-		width: 35px;
-	}
-
-	.feature_map .feature_heading:after {
-		background-position: -80px -80px;
-		height: 31px;
-		width: 25px;
-	}
-
 	/* Gallery */
 
 	.gallery {
@@ -181,9 +158,22 @@
 	}
 
 	.download_button {
-		background: #000;
-		color: #fff;
-		margin-bottom: 10px;
+		background: #000 url(../images/icon_sprite.png) no-repeat;
+		overflow: hidden;
+		text-indent: 100%;
+		white-space: nowrap;
+	}
+
+	.download_apple {
+		background-position: center -200px;
+	}
+
+	.download_google {
+		background-position: center -260px;
+	}
+
+	.download_amazon {
+		background-position: center -320px;
 	}
 
 	/* Footer */
@@ -205,11 +195,27 @@
 	}
 
 	.social_link {
-		color: #2b3f4c;
+		background: url(../images/icon_sprite.png) no-repeat;
 		display: inline-block;
-		margin: 0 5px;
+		height: 38px;
+		margin: 0;
+		overflow: hidden;
+		text-indent: 100%;
+		white-space: nowrap;
+		width: 38px;
 	}
 
+	.social_facebook {
+		background-position: -80px 0;
+	}
+
+	.social_twitter {
+		background-position: -120px 0;
+	}
+
+	.social_google {
+		background-position: -160px 0;
+	}
 
 
 	@media screen and (max-width: 499px) {
@@ -227,17 +233,50 @@
 	}
 
 	@media screen and (max-width: 739px) {
-		/* target screens smaller then 740px */
-	}
-
-	@media screen and (min-width: 740px) {
-
-		.feature {
-			text-align: center;
+		.button {
+			width: 100%;
 		}
 
 		.feature_heading:after {
-			display: none;
+			display: inline-block;
+			height: 20px;
+			margin: 0 0 0 10px;
+			vertical-align: middle;
+			width: 20px;
+		}
+
+		.feature_tag .feature_heading:after {
+			background-position: 0 -80px;
+			height: 31px;
+			width: 31px;
+		}
+
+		.feature_cloud .feature_heading:after {
+			background-position: -40px -80px;
+			height: 25px;
+			width: 35px;
+		}
+
+		.feature_map .feature_heading:after {
+			background-position: -80px -80px;
+			height: 31px;
+			width: 25px;
+		}
+	}
+
+	@media screen and (min-width: 740px) {
+		.intro_row:before {
+			background: url(../images/intro_phone.png) no-repeat;
+			bottom: 0;
+			content: '';
+			height: 554px;
+			position: absolute;
+			right: -30px;
+			width: 325px;
+		}
+
+		.feature {
+			text-align: center;
 		}
 
 		.feature_heading:before {
@@ -270,6 +309,35 @@
 		.download_content {
 			margin-bottom: 50px;
 		}
+
+		.download_button {
+			width: 25%;
+		}
+
+		.footer {
+			text-align: left;
+		}
+
+		.footer_content {
+			line-height: 38px;
+		}
+
+		.footer_text {
+			display: inline-block;
+			margin: 0;
+		}
+
+		.footer_link {
+			margin: 0 10px 0 0;
+		}
+
+		.social_links {
+			text-align: right;
+		}
+
+		.social_link {
+			margin: 0;
+		}
 	}
 
 	@media screen and (min-width: 740px) and (max-width: 979px) {
@@ -283,31 +351,24 @@
 	}
 
 	@media screen and (min-width: 980px) {
-		.bar {
+		.padded {
 			padding: 100px 0;
 		}
 
+		.intro_row:before {
+			right: 70px;
+		}
+
 		.gallery_heading {
-			margin-top: 90px;
-		}
-
-		.csstransforms .gallery_heading {
-			margin-top: 0;
-		}
-
-		.csstransforms .gallery_row {
-			height: 300px;
-		}
-
-		.csstransforms .gallery_block {
-			min-height: 200px;
-			position: relative;
-			top: 50%;
-			transform: translateY(-50%);
+			margin-top: 50px;
 		}
 
 		.gallery_item {
 			margin-bottom: 15px;
+		}
+
+		.download_button {
+			width: 200px;
 		}
 	}
 
@@ -320,7 +381,11 @@
 	}
 
 	@media screen and (min-width: 1220px) {
-		.csstransforms .gallery_row {
-			height: 370px;
+		.intro_row:before {
+			right: 140px;
+		}
+
+		.gallery_heading {
+			margin-top: 90px;
 		}
 	}
