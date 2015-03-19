@@ -97,7 +97,6 @@
 		data.closed           = true;
 
 		data.keyDownGUID      = Events.keyDown + data.guid;
-		data.clickGUID        = Events.click + data.guid;
 
 		buildOptions(data);
 
@@ -105,31 +104,30 @@
 			updateOption(originalIndex, data);
 		}
 
-		/*
+/*
 		// Scroller support
 		if ($.fn.scroller !== undefined) {
 			data.$wrapper.scroller();
 		}
-		*/
+*/
 
 		// Bind events
 		data.$selected.touch({
 			tap: true
 		}).on(Events.tap, data, onClick);
 
-		data.$dropdown.on(Events.click, Classes.item, data, onSelect)
-					  .on(Events.close, data, onClose);
+		data.$dropdown.on(Events.click, Classes.item, data, onSelect);
 
 		// Change events
 		this.on(Events.change, data, onChange);
 
 		// Focus/Blur events
 		if (!Formstone.isMobile) {
-			data.$dropdown.on(Events.focus, data, onFocus)
+			data.$dropdown.on(Events.focusIn, data, onFocus)
 						  .on(Events.blur, data, onBlur);
 
 			// Handle clicks to associated labels
-			this.on(Events.focus, data, function(e) {
+			this.on(Events.focusIn, data, function(e) {
 				e.data.$dropdown.trigger(Events.raw.focus);
 			});
 		}
@@ -148,20 +146,19 @@
 		}
 
 		// Scrollbar support
-		/*
+/*
 		if ($.fn.scroller !== undefined) {
 			data.$dropdown.find(".selecter-options").scroller("destroy");
 		}
-		*/
+*/
 
 		data.$el[0].tabIndex = data.tabIndex;
-
-		data.$dropdown.off(Events.namespace);
-		data.$options.off(Events.namespace);
 
 		data.$placeholder.remove();
 		data.$selected.remove();
 		data.$wrapper.remove();
+
+		data.$dropdown.off(Events.namespace);
 
 		data.$el.off(Events.namespace)
 				.show()
@@ -347,8 +344,6 @@
 	function openOptions(data) {
 		// Make sure it's not already open
 		if (data.closed) {
-			$(Classes.base).not(data.$dropdown).trigger(Events.close, [ data ]);
-
 			var offset = data.$dropdown.offset(),
 				bodyHeight = $Body.outerHeight(),
 				optionsHeight = data.$wrapper.outerHeight(true),
@@ -360,9 +355,8 @@
 			}
 
 			// Bind Events
-			$Body.on(data.clickGUID, ":not(" + Classes.options + ")", data, closeOptionsHelper);
-
 			data.$dropdown.addClass(RawClasses.open);
+
 			scrollOptions(data);
 
 			data.closed = false;
@@ -386,43 +380,9 @@
 	function closeOptions(data) {
 		// Make sure it's actually open
 		if (data && !data.closed) {
-			$Body.off(data.clickGUID);
-
 			data.$dropdown.removeClass( [RawClasses.open, RawClasses.bottom].join(" ") );
 
 			data.closed = true;
-		}
-	}
-
-	/**
-	 * @method private
-	 * @name closeOptionsHelper
-	 * @description Determines if event target is outside instance before closing
-	 * @param e [object] "Event data"
-	 */
-
-	function closeOptionsHelper(e) {
-		Functions.killEvent(e);
-
-		var data = e.data;
-
-		if (data && $(e.currentTarget).parents(Classes.base).length === 0) {
-			closeOptions(data);
-		}
-	}
-
-	/**
-	 * @method private
-	 * @name onClose
-	 * @description Handles close event.
-	 * @param e [object] "Event data"
-	 */
-
-	function onClose(e) {
-		var data = e.data;
-
-		if (data) {
-			closeOptions(data);
 		}
 	}
 
@@ -501,7 +461,7 @@
 	 * @param e [object] "Event data"
 	 */
 
-	function onBlur(e, internal) {
+	function onBlur(e, internal, two) {
 		Functions.killEvent(e);
 
 		var data = e.data;
@@ -637,14 +597,14 @@
 		var $selected = data.$items.eq(data.index),
 			selectedOffset = (data.index >= 0 && !$selected.hasClass(Classes.item_placeholder)) ? $selected.position() : { left: 0, top: 0 };
 
-		/*
+/*
 		if ($.fn.scroller !== undefined) {
 			data.$wrapper.scroller("scroll", (data.$wrapper.find(".scroller-content").scrollTop() + selectedOffset.top), 0)
 							  .scroller("reset");
 		} else {
-		*/
+*/
 			data.$wrapper.scrollTop( data.$wrapper.scrollTop() + selectedOffset.top );
-		// }
+//		}
 	}
 
 	/**
@@ -775,11 +735,11 @@
 				"item_disabled",
 				"item_selected",
 				"item_placeholder"
+
 			],
 
 			events: {
-				tap:   "tap",
-				close: "close"
+				tap: "tap"
 			}
 		}),
 

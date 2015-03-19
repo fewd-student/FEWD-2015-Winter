@@ -7,8 +7,6 @@
 
 var Formstone = this.Formstone = (function ($, window, document, undefined) {
 
-	/* global ga */
-
 	"use strict";
 
 	// Namespace
@@ -55,14 +53,10 @@ var Formstone = this.Formstone = (function ($, window, document, undefined) {
 			 * @param e [object] "Event data"
 			 */
 
-			killEvent: function(e, immediate) {
+			killEvent: function(e) {
 				try {
 					e.preventDefault();
 					e.stopPropagation();
-
-					if (immediate) {
-						e.stopImmediatePropagation();
-					}
 				} catch(error) {
 					//
 				}
@@ -344,7 +338,7 @@ var Formstone = this.Formstone = (function ($, window, document, undefined) {
 
 					// Wrap Utility Methods
 
-					return _method.apply(window, Array.prototype.slice.call(arguments, ($.type(method) === "object" ? 0 : 1) ));
+					_method.apply(window, Array.prototype.slice.call(arguments, ($.type(method) === "object" ? 0 : 1) ));
 				}
 			}
 

@@ -84,42 +84,24 @@
 	}
 
 	/**
-	 * @method
+	 * method
 	 * @name unbind
 	 * @description Unbinds all callbacks from media query.
 	 * @param key [string] "Instance key"
-	 * @param media [string] "Media query to unbind; defaults to all"
-	 * @example $.mediaquery("unbind", "key");
+	 * @param media [string] "Media query to match"
+	 * @example $.mediaquery("key");
 	 */
 
 	function unbind(key, media) {
-		if (!key) {
-			return;
-		}
+		var mqkey = createKey(media);
 
-		if (media) {
-			// unbind specific query
-			var mqKey = createKey(media);
-
-			if (Bindings[mqKey]) {
-				if (Bindings[mqKey].enter[key]) {
-					delete Bindings[mqKey].enter[key];
-				}
-
-				if (Bindings[mqKey].leave[key]) {
-					delete Bindings[mqKey].leave[key];
-				}
-			}
-		} else {
-			// unbind all
-			for (var i in Bindings) {
-				if (Bindings.hasOwnProperty(i)) {
-					if (Bindings[i].enter[key]) {
-						delete Bindings[i].enter[key];
-					}
-
-					if (Bindings[i].leave[key]) {
-						delete Bindings[i].leave[key];
+		// all media
+		for (var i in Bindings) {
+			if (Bindings.hasOwnProperty(i)) {
+				// all events
+				for (var j in Bindings[i]) {
+					if (Bindings[i].hasOwnProperty(j) && Bindings[i][j].hasOwnProperty(key)) {
+						delete Bindings[i][j];
 					}
 				}
 			}
@@ -216,13 +198,6 @@
 	 * @example var state = $.mediaquery("state");
 	 */
 
-	/**
-	 * @method private
-	 * @name getState
-	 * @description Returns the current state.
-	 * @return [object] "Current state object"
-	 */
-
 	function getState() {
 		return State;
 	}
@@ -239,8 +214,8 @@
 			utilities: {
 				_initialize    : initialize,
 				state          : getState,
-				bind           : bind,
-				unbind         : unbind
+				bind           : bind
+				// unbind         : unbind
 			},
 
 			/**

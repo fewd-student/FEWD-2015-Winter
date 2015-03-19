@@ -59,13 +59,12 @@
 
 		// Modify dom
 		this.addClass( [RawClasses.base, data.customClass].join(" ") )
-			.wrapInner('<div class="' + RawClasses.container + '"><div class="' + RawClasses.canister + '"></div></div>')
+			.wrapInner('<div class="' + RawClasses.canister + '"></div>')
 			.append(controlsHtml)
 			.wrapInner('<div class="' + RawClasses.viewport + '"></div>')
 			.append(paginationHtml);
 
 		data.$viewport           = this.find(Classes.viewport).eq(0);
-		data.$container          = this.find(Classes.container).eq(0);
 		data.$canister           = this.find(Classes.canister).eq(0);
 		data.$controls           = this.find(Classes.controls).eq(0);
 		data.$pagination         = this.find(Classes.pagination).eq(0);
@@ -78,6 +77,7 @@
 		data.enabled         = false;
 		data.leftPosition    = 0;
 		data.totalImages     = data.$images.length;
+
 		data.autoTimer       = null;
 
 		if ($.type(data.show) === "object") {
@@ -104,6 +104,7 @@
 		}
 
 		// Media Query support
+
 		$.mediaquery("bind", data.mqGuid, data.mq, {
 			enter: function() {
 				enable.call(data.$el, data);
@@ -113,7 +114,7 @@
 			}
 		});
 
-		// Watch Images
+		// Watch images
 		if (data.totalImages > 0) {
 			data.loadedImages = 0;
 			for (i = 0; i < data.totalImages; i++) {
@@ -266,17 +267,15 @@
 
 			this.removeClass(RawClasses.animated);
 
-			// data.viewportWidth  = data.$viewport.outerWidth(false);
-			data.containerWidth = data.$container.outerWidth(false);
-
+			data.width     = data.$viewport.outerWidth(false);
 			data.visible   = calculateVisible(data);
 			data.perPage   = data.paged ? 1 : data.visible;
 
 			data.itemMargin = parseInt(data.$items.eq(0).css("marginRight")) + parseInt(data.$items.eq(0).css("marginLeft"));
-			data.itemWidth  = (data.containerWidth - (data.itemMargin * (data.visible - 1))) / data.visible;
+			data.itemWidth  = (data.width - (data.itemMargin * (data.visible - 1))) / data.visible;
 			data.itemHeight = 0;
 
-			data.pageWidth = data.paged ? data.itemWidth : data.containerWidth;
+			data.pageWidth = data.paged ? data.itemWidth : data.width;
 			data.pageCount = Math.ceil(data.count / data.perPage);
 
 			data.$canister.css({
@@ -295,11 +294,7 @@
 				$items = data.$items.slice(i, i + data.perPage);
 
 				if ($items.length < data.perPage) {
-					if (i === 0) {
-						$items = data.$items;
-					} else {
-						$items = data.$items.slice(data.$items.length - data.perPage);
-					}
+					$items = data.$items.slice(data.$items.length - data.perPage);
 				}
 
 				$first = $items.eq(0);
@@ -339,7 +334,7 @@
 			data.$pagination.html(html);
 
 			// update pagination
-			if (data.pageCount <= 1) {
+			if (data.pageCount < 1) {
 				data.$controls.removeClass(RawClasses.visible);
 				data.$pagination.removeClass(RawClasses.visible);
 			} else {
@@ -604,6 +599,33 @@
 
 	/**
 	 * @method private
+	 * @name calculateIndex
+	 * @description Determines new index based on current position
+	 * @param data [object] "Instance data"
+	 * @return [int] "New item index"
+	 */
+
+	function calculateIndex(data) {
+		var i = 0;
+
+		if (data.leftPosition === 0) {
+			return 0;
+		} else {
+			var page;
+			for (i = 0; i < data.pages.length; i++) {
+				page = data.pages[i];
+
+				if (-page.left < data.leftPosition) {
+					return i;
+				}
+			}
+		}
+
+		return 0;
+	}
+
+	/**
+	 * @method private
 	 * @name calculateVisible
 	 * @description Determines how many items should show at screen width
 	 * @param data [object] "Instance data"
@@ -614,13 +636,13 @@
 		if ($.type(data.show) === "object") {
 			for (var i in data.show) {
 				if (data.show.hasOwnProperty(i) && Formstone.windowWidth >= data.show[i].width) {
-					return (data.fill && data.count < data.show[i].count) ? data.count : data.show[i].count;
+					return (data.show[i].count > data.count) ? data.count : data.show[i].count;
 				}
 			}
 			return 1;
+		} else {
+			return data.show;
 		}
-
-		return (data.fill && data.count < data.show) ? data.count : data.show;
 	}
 
 	/**
@@ -739,7 +761,6 @@
 			 * @param autoTime [int] <8000> "Auto advance time"
 			 * @param controls [boolean] <true> "Flag to draw controls"
 			 * @param customClass [string] <''> "Class applied to instance"
-			 * @param fill [boolean] <false> "Flag to fill viewport if item count is less then show count"
 			 * @param infinite [boolean] <false> "Flag for looping items"
 			 * @param labels.next [string] <'Next'> "Control text"
 			 * @param labels.previous [string] <'Previous'> "Control text"
@@ -758,7 +779,6 @@
 				autoTime       : 8000,
 				controls       : true,
 				customClass    : "",
-				fill           : false,
 				infinite       : false,
 				labels: {
 					next       : "Next",
@@ -775,7 +795,6 @@
 
 			classes: [
 				"viewport",
-				"container",
 				"canister",
 				"item",
 				"controls",

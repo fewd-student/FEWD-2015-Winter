@@ -20,11 +20,9 @@
 	 */
 
 	function construct(data) {
-		var min = parseFloat(this.attr("min")),
-			max = parseFloat(this.attr("max"));
-
-		data.min  = (min || min === 0) ? min : false;
-		data.max  = (max || max === 0) ? max : false;
+		// HTML5 attributes
+		data.min = parseFloat(this.attr("min"))   || false;
+		data.max = parseFloat(this.attr("max"))   || false;
 		data.step = parseFloat(this.attr("step")) || 1;
 		data.timer        = null;
 		data.digits       = significantDigits(data.step);
@@ -172,7 +170,7 @@
 		var oValue = parseFloat(data.$el.val()),
 			value = change;
 
-		if ($.type(oValue) === "undefined" || isNaN(oValue)) {
+		if (typeof oValue === undefined || isNaN(oValue)) {
 			if (data.min !== false) {
 				value = data.min;
 			} else {

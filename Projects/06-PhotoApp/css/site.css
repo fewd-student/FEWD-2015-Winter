@@ -218,6 +218,16 @@
 	}
 
 
+
+	.fs-lightbox-close {
+		background: #000;
+	}
+	.fs-lightbox-close:before {
+		color: #fff;
+	}
+
+
+
 	@media screen and (max-width: 499px) {
 		/* target screens smaller then 500px */
 	}
