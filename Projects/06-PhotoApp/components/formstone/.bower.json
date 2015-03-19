@@ -27,5 +27,6 @@
   },
   "_source": "git://github.com/Formstone/Formstone.git",
   "_target": "*",
-  "_originalSource": "formstone"
+  "_originalSource": "formstone",
+  "_direct": true
 }
