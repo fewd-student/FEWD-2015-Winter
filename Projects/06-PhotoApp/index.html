@@ -10,6 +10,7 @@
 		<link href="components/normalize-css/normalize.css" rel="stylesheet">
 		<link href="components/formstone/dist/css/grid.css" rel="stylesheet">
 		<link href="components/formstone/dist/css/lightbox.css" rel="stylesheet">
+		<link href="components/animate.css/animate.min.css" rel="stylesheet">
 		<link href="css/site.css" rel="stylesheet">
 
 		<script src="components/modernizr/modernizr.js"></script>
@@ -18,14 +19,27 @@
 		<script src="components/formstone/dist/js/core.js"></script>
 		<script src="components/formstone/dist/js/transition.js"></script>
 		<script src="components/formstone/dist/js/lightbox.js"></script>
+		<script src="components/wowjs/dist/wow.min.js"></script>
 		<script src="js/site.js"></script>
 
 		<!--[if IE 8]>
 			<link href="components/formstone/dist/css/grid.ie.css"  rel="stylesheet">
-			<link href="css/site-ie.css"  rel="stylesheet">
+			<link href="css/site-ie.css" rel="stylesheet">
 		<![endif]-->
 	</head>
 	<body class="fs-grid">
+
+		<div class="progress">
+			<span class="fill wow" style="width: 30%"></span>
+		</div>
+		<div class="progress">
+			<span class="fill wow" style="width: 70%"></span>
+		</div>
+		<div class="progress">
+			<span class="fill wow" style="width: 50%"></span>
+		</div>
+
+
 		<header class="fs-row header">
 			<div class="fs-cell">
 				<a href="#" class="logo"><strong>Picticious</strong>Pro</a>
@@ -33,7 +47,7 @@
 		</header>
 		<section class="bar intro">
 			<div class="fs-row padded intro_row">
-				<div class="fs-cell fs-md-half fs-lg-half">
+				<div class="fs-cell fs-md-half fs-lg-half wow fadeIn">
 					<h1 class="intro_heading">Nice Shot</h1>
 					<p class="intro_content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.</p>
 					<a href="#download" class="button intro_button">Download Now</a>
@@ -41,15 +55,15 @@
 			</div>
 		</section>
 		<section class="fs-row bar padded features">
-			<div class="fs-cell fs-md-third fs-lg-third feature feature_tag">
+			<div class="fs-cell fs-md-third fs-lg-third feature feature_tag wow fadeIn" data-wow-delay="0">
 				<h2 class="feature_heading">Tag It All</h2>
 				<p class="feature_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam suscipit aliquet felis, quis.</p>
 			</div>
-			<div class="fs-cell fs-md-third fs-lg-third feature feature_cloud">
+			<div class="fs-cell fs-md-third fs-lg-third feature feature_cloud wow fadeIn" data-wow-delay="0.25s">
 				<h2 class="feature_heading">Cloud Sync</h2>
 				<p class="feature_content">Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum.</p>
 			</div>
-			<div class="fs-cell fs-md-third fs-lg-third feature feature_map">
+			<div class="fs-cell fs-md-third fs-lg-third feature feature_map wow fadeIn" data-wow-delay="0.5s">
 				<h2 class="feature_heading">Photo Map</h2>
 				<p class="feature_content">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Ligula porta felis.</p>
 			</div>
@@ -57,31 +71,33 @@
 		<section class="bar gallery">
 			<div class="fs-row padded gallery_row">
 				<div class="fs-cell fs-md-4 fs-lg-4 gallery_block">
-					<h3 class="gallery_heading">Capture Life</h3>
-					<p class="gallery_content">Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+					<div class="wow fadeInUp">
+						<h3 class="gallery_heading">Capture Life</h3>
+						<p class="gallery_content">Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+					</div>
 				</div>
-				<a href="images/photos/01.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item gallery_item_first js-lightbox" data-lightbox-gallery="photo_gallery">
+				<a href="images/photos/01.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item gallery_item_first js-lightbox wow zoomIn" data-lightbox-gallery="photo_gallery" data-wow-delay="0">
 					<img src="images/photos/thumb_01.jpg" alt="">
 				</a>
-				<a href="images/photos/02.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item gallery_item_first js-lightbox" data-lightbox-gallery="photo_gallery">
+				<a href="images/photos/02.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item gallery_item_first js-lightbox wow zoomIn" data-lightbox-gallery="photo_gallery" data-wow-delay="0.1s">
 					<img src="images/photos/thumb_02.jpg" alt="">
 				</a>
-				<a href="images/photos/03.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item js-lightbox" data-lightbox-gallery="photo_gallery">
+				<a href="images/photos/03.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item js-lightbox wow zoomIn" data-lightbox-gallery="photo_gallery" data-wow-delay="0.2s">
 					<img src="images/photos/thumb_03.jpg" alt="">
 				</a>
-				<a href="images/photos/04.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item js-lightbox" data-lightbox-gallery="photo_gallery">
+				<a href="images/photos/04.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item js-lightbox wow zoomIn" data-lightbox-gallery="photo_gallery" data-wow-delay="0.3s">
 					<img src="images/photos/thumb_04.jpg" alt="">
 				</a>
-				<a href="images/photos/05.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item js-lightbox" data-lightbox-gallery="photo_gallery">
+				<a href="images/photos/05.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item js-lightbox wow zoomIn" data-lightbox-gallery="photo_gallery" data-wow-delay="0.4s">
 					<img src="images/photos/thumb_05.jpg" alt="">
 				</a>
-				<a href="images/photos/06.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item js-lightbox" data-lightbox-gallery="photo_gallery">
+				<a href="images/photos/06.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item js-lightbox wow zoomIn" data-lightbox-gallery="photo_gallery" data-wow-delay="0.5s">
 					<img src="images/photos/thumb_06.jpg" alt="">
 				</a>
-				<a href="images/photos/07.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item js-lightbox" data-lightbox-gallery="photo_gallery">
+				<a href="images/photos/07.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item js-lightbox wow zoomIn" data-lightbox-gallery="photo_gallery" data-wow-delay="0.6s">
 					<img src="images/photos/thumb_07.jpg" alt="">
 				</a>
-				<a href="images/photos/08.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item js-lightbox" data-lightbox-gallery="photo_gallery">
+				<a href="images/photos/08.jpg" class="fs-cell fs-xs-half fs-sm-fourth fs-md-1 fs-lg-2 gallery_item js-lightbox wow zoomIn" data-lightbox-gallery="photo_gallery" data-wow-delay="0.7s">
 					<img src="images/photos/thumb_08.jpg" alt="">
 				</a>
 			</div>
@@ -91,9 +107,9 @@
 				<h2 class="download_heading">Download Now</h2>
 				<p class="download_content">Nullam id dolor id nibh ultricies vehicula deposit quid pro quo hic escorol.</p>
 				<div class="download_buttons">
-					<a href="#" class="button download_button download_apple">App Store</a>
-					<a href="#" class="button download_button download_google">Play Store</a>
-					<a href="#" class="button download_button download_amazon">Amazon Store</a>
+					<a href="#" class="button download_button download_apple wow flipInX" data-wow-delay="0">App Store</a>
+					<a href="#" class="button download_button download_google wow flipInX" data-wow-delay="0.25s">Play Store</a>
+					<a href="#" class="button download_button download_amazon wow flipInX" data-wow-delay="0.5s">Amazon Store</a>
 				</div>
 			</div>
 		</section>
